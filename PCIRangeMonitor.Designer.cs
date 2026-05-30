@@ -72,7 +72,7 @@
             // 
             this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "Address";
+            this.Address.HeaderText = "地址";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
             this.Address.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -85,7 +85,7 @@
             this.Value.DataPropertyName = "Value";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Value.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Value.HeaderText = "Value";
+            this.Value.HeaderText = "数值";
             this.Value.Name = "Value";
             this.Value.ReadOnly = true;
             this.Value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -99,7 +99,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PCIRangeMonitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PCIRangeMonitor";
+            this.Text = "PCI 范围监视器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCIRangeMonitor_FormClosing);
             this.Shown += new System.EventHandler(this.PCIRangeMonitor_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPCIRange)).EndInit();

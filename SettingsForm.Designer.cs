@@ -360,7 +360,7 @@ namespace ZenStatesDebugTool
             this.labelCMDAddress.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.labelCMDAddress.Size = new System.Drawing.Size(94, 28);
             this.labelCMDAddress.TabIndex = 0;
-            this.labelCMDAddress.Text = "CMD Address";
+            this.labelCMDAddress.Text = "CMD 地址";
             this.labelCMDAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelRSP
@@ -373,7 +373,7 @@ namespace ZenStatesDebugTool
             this.labelRSP.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.labelRSP.Size = new System.Drawing.Size(94, 28);
             this.labelRSP.TabIndex = 1;
-            this.labelRSP.Text = "RSP Address";
+            this.labelRSP.Text = "RSP 地址";
             this.labelRSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxCMDAddress
@@ -408,7 +408,7 @@ namespace ZenStatesDebugTool
             this.labelARG0.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.labelARG0.Size = new System.Drawing.Size(94, 28);
             this.labelARG0.TabIndex = 4;
-            this.labelARG0.Text = "Arguments";
+            this.labelARG0.Text = "参数";
             this.labelARG0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxARG0
@@ -433,7 +433,7 @@ namespace ZenStatesDebugTool
             this.labelCMD.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.labelCMD.Size = new System.Drawing.Size(94, 28);
             this.labelCMD.TabIndex = 8;
-            this.labelCMD.Text = "Command ID";
+            this.labelCMD.Text = "命令 ID";
             this.labelCMD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelARGAddress
@@ -446,7 +446,7 @@ namespace ZenStatesDebugTool
             this.labelARGAddress.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.labelARGAddress.Size = new System.Drawing.Size(94, 28);
             this.labelARGAddress.TabIndex = 10;
-            this.labelARGAddress.Text = "ARG Address";
+            this.labelARGAddress.Text = "ARG 地址";
             this.labelARGAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxARGAddress
@@ -467,7 +467,7 @@ namespace ZenStatesDebugTool
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(94, 29);
             this.label30.TabIndex = 12;
-            this.label30.Text = "Mailbox";
+            this.label30.Text = "邮箱";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // comboBoxMailboxSelect
@@ -553,7 +553,7 @@ namespace ZenStatesDebugTool
             this.buttonSmuLog.Name = "buttonSmuLog";
             this.buttonSmuLog.Size = new System.Drawing.Size(75, 23);
             this.buttonSmuLog.TabIndex = 5;
-            this.buttonSmuLog.Text = "Monitor";
+            this.buttonSmuLog.Text = "监视";
             this.buttonSmuLog.UseVisualStyleBackColor = true;
             this.buttonSmuLog.Click += new System.EventHandler(this.ButtonSMUMonitor_Click);
             // 
@@ -564,7 +564,7 @@ namespace ZenStatesDebugTool
             this.buttonProbe.Name = "buttonProbe";
             this.buttonProbe.Size = new System.Drawing.Size(75, 23);
             this.buttonProbe.TabIndex = 2;
-            this.buttonProbe.Text = "Scan";
+            this.buttonProbe.Text = "扫描";
             this.buttonProbe.UseVisualStyleBackColor = true;
             this.buttonProbe.Click += new System.EventHandler(this.ButtonScan_Click);
             // 
@@ -574,7 +574,7 @@ namespace ZenStatesDebugTool
             this.buttonPMTable.Name = "buttonPMTable";
             this.buttonPMTable.Size = new System.Drawing.Size(75, 23);
             this.buttonPMTable.TabIndex = 3;
-            this.buttonPMTable.Text = "PMTable";
+            this.buttonPMTable.Text = "电源表";
             this.buttonPMTable.UseVisualStyleBackColor = true;
             this.buttonPMTable.Click += new System.EventHandler(this.ButtonPMTable_Click);
             // 
@@ -585,7 +585,7 @@ namespace ZenStatesDebugTool
             this.buttonDefaults.Name = "buttonDefaults";
             this.buttonDefaults.Size = new System.Drawing.Size(75, 23);
             this.buttonDefaults.TabIndex = 1;
-            this.buttonDefaults.Text = "Reset";
+            this.buttonDefaults.Text = "重置";
             this.buttonDefaults.UseVisualStyleBackColor = true;
             this.buttonDefaults.Click += new System.EventHandler(this.ButtonDefaults_Click);
             // 
@@ -596,7 +596,7 @@ namespace ZenStatesDebugTool
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(75, 23);
             this.buttonApply.TabIndex = 0;
-            this.buttonApply.Text = "Send";
+            this.buttonApply.Text = "发送";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.ButtonApply_Click);
             // 
@@ -644,7 +644,7 @@ namespace ZenStatesDebugTool
             this.groupBoxCoreControl.Size = new System.Drawing.Size(331, 191);
             this.groupBoxCoreControl.TabIndex = 2;
             this.groupBoxCoreControl.TabStop = false;
-            this.groupBoxCoreControl.Text = "Core Control";
+            this.groupBoxCoreControl.Text = "核心控制";
             // 
             // panelX3D
             // 
@@ -682,8 +682,8 @@ namespace ZenStatesDebugTool
             this.radioButtonManualCoreControl.Name = "radioButtonManualCoreControl";
             this.radioButtonManualCoreControl.Size = new System.Drawing.Size(60, 17);
             this.radioButtonManualCoreControl.TabIndex = 4;
-            this.radioButtonManualCoreControl.Text = "Manual";
-            this.toolTip1.SetToolTip(this.radioButtonManualCoreControl, "Manual mode allows to pick specific cores to disable and/or SMT.");
+            this.radioButtonManualCoreControl.Text = "手动";
+            this.toolTip1.SetToolTip(this.radioButtonManualCoreControl, "手动模式可以选择要禁用的特定核心和/或 SMT。");
             this.radioButtonManualCoreControl.UseVisualStyleBackColor = true;
             this.radioButtonManualCoreControl.CheckedChanged += new System.EventHandler(this.RadioButtonManualCoreControl_CheckedChanged);
             // 
@@ -707,7 +707,7 @@ namespace ZenStatesDebugTool
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(265, 13);
             this.label67.TabIndex = 2;
-            this.label67.Text = "Deselect the cores you want to disable and click Apply";
+            this.label67.Text = "取消选择要禁用的核心，然后点击应用";
             // 
             // tableLayoutPanel15
             // 
@@ -1125,7 +1125,7 @@ namespace ZenStatesDebugTool
             this.buttonApplyCoreMap.Name = "buttonApplyCoreMap";
             this.buttonApplyCoreMap.Size = new System.Drawing.Size(75, 23);
             this.buttonApplyCoreMap.TabIndex = 1;
-            this.buttonApplyCoreMap.Text = "Apply";
+            this.buttonApplyCoreMap.Text = "应用";
             this.buttonApplyCoreMap.UseVisualStyleBackColor = true;
             this.buttonApplyCoreMap.Click += new System.EventHandler(this.ButtonApplyCoreMap_Click);
             // 
@@ -1148,8 +1148,8 @@ namespace ZenStatesDebugTool
             this.radioButtonX3D.Size = new System.Drawing.Size(107, 17);
             this.radioButtonX3D.TabIndex = 7;
             this.radioButtonX3D.TabStop = true;
-            this.radioButtonX3D.Text = "X3D Turbo Mode";
-            this.toolTip1.SetToolTip(this.radioButtonX3D, "X3D Mode disables SMT and second CCD module if available");
+            this.radioButtonX3D.Text = "X3D 加速模式";
+            this.toolTip1.SetToolTip(this.radioButtonX3D, "X3D 模式禁用 SMT 和第二个 CCD 模块（如果可用）");
             this.radioButtonX3D.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel8
@@ -1191,7 +1191,7 @@ namespace ZenStatesDebugTool
             this.buttonApplyPROCHOT.Name = "buttonApplyPROCHOT";
             this.buttonApplyPROCHOT.Size = new System.Drawing.Size(76, 23);
             this.buttonApplyPROCHOT.TabIndex = 12;
-            this.buttonApplyPROCHOT.Text = "Apply";
+            this.buttonApplyPROCHOT.Text = "应用";
             this.buttonApplyPROCHOT.UseVisualStyleBackColor = true;
             this.buttonApplyPROCHOT.Click += new System.EventHandler(this.ButtonApplyPROCHOT_Click);
             // 
@@ -1202,7 +1202,7 @@ namespace ZenStatesDebugTool
             this.buttonApplySC.Name = "buttonApplySC";
             this.buttonApplySC.Size = new System.Drawing.Size(76, 24);
             this.buttonApplySC.TabIndex = 5;
-            this.buttonApplySC.Text = "Apply";
+            this.buttonApplySC.Text = "应用";
             this.buttonApplySC.UseVisualStyleBackColor = true;
             this.buttonApplySC.Click += new System.EventHandler(this.ButtonApplySC_Click);
             // 
@@ -1213,7 +1213,7 @@ namespace ZenStatesDebugTool
             this.buttonApplyAC.Name = "buttonApplyAC";
             this.buttonApplyAC.Size = new System.Drawing.Size(76, 24);
             this.buttonApplyAC.TabIndex = 2;
-            this.buttonApplyAC.Text = "Apply";
+            this.buttonApplyAC.Text = "应用";
             this.buttonApplyAC.UseVisualStyleBackColor = true;
             this.buttonApplyAC.Click += new System.EventHandler(this.ButtonApplyAC_Click);
             // 
@@ -1226,7 +1226,7 @@ namespace ZenStatesDebugTool
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(320, 20);
             this.label14.TabIndex = 6;
-            this.label14.Text = "All Core Frequency";
+            this.label14.Text = "全核心频率";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label16
@@ -1238,7 +1238,7 @@ namespace ZenStatesDebugTool
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(320, 20);
             this.label16.TabIndex = 7;
-            this.label16.Text = "Single Core Frequency";
+            this.label16.Text = "单核心频率";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // comboBoxACF
@@ -1388,7 +1388,7 @@ namespace ZenStatesDebugTool
             this.buttonPciWrite.Name = "buttonPciWrite";
             this.buttonPciWrite.Size = new System.Drawing.Size(75, 25);
             this.buttonPciWrite.TabIndex = 5;
-            this.buttonPciWrite.Text = "Write";
+            this.buttonPciWrite.Text = "写入";
             this.buttonPciWrite.UseVisualStyleBackColor = true;
             this.buttonPciWrite.Click += new System.EventHandler(this.ButtonPciWrite_Click);
             // 
@@ -1402,7 +1402,7 @@ namespace ZenStatesDebugTool
             this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.label5.Size = new System.Drawing.Size(94, 31);
             this.label5.TabIndex = 0;
-            this.label5.Text = "PCI Register";
+            this.label5.Text = "PCI 寄存器";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxPciAddress
@@ -1424,7 +1424,7 @@ namespace ZenStatesDebugTool
             this.buttonPciRead.Name = "buttonPciRead";
             this.buttonPciRead.Size = new System.Drawing.Size(75, 25);
             this.buttonPciRead.TabIndex = 2;
-            this.buttonPciRead.Text = "Read";
+            this.buttonPciRead.Text = "读取";
             this.buttonPciRead.UseVisualStyleBackColor = true;
             this.buttonPciRead.Click += new System.EventHandler(this.ButtonPciRead_Click);
             // 
@@ -1438,7 +1438,7 @@ namespace ZenStatesDebugTool
             this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.label7.Size = new System.Drawing.Size(94, 31);
             this.label7.TabIndex = 3;
-            this.label7.Text = "Value";
+            this.label7.Text = "数值";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxPciValue
@@ -1460,7 +1460,7 @@ namespace ZenStatesDebugTool
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 31);
             this.label12.TabIndex = 6;
-            this.label12.Text = "Start Register";
+            this.label12.Text = "起始寄存器";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
@@ -1471,7 +1471,7 @@ namespace ZenStatesDebugTool
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(94, 29);
             this.label13.TabIndex = 7;
-            this.label13.Text = "End Register";
+            this.label13.Text = "结束寄存器";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxPciStartReg
@@ -1503,7 +1503,7 @@ namespace ZenStatesDebugTool
             this.buttonPciScan.Name = "buttonPciScan";
             this.buttonPciScan.Size = new System.Drawing.Size(75, 25);
             this.buttonPciScan.TabIndex = 10;
-            this.buttonPciScan.Text = "Scan";
+            this.buttonPciScan.Text = "扫描";
             this.buttonPciScan.UseVisualStyleBackColor = true;
             this.buttonPciScan.Click += new System.EventHandler(this.ButtonPciScan_Click);
             // 
@@ -1513,7 +1513,7 @@ namespace ZenStatesDebugTool
             this.ButtonPCIRangeMonitor.Name = "ButtonPCIRangeMonitor";
             this.ButtonPCIRangeMonitor.Size = new System.Drawing.Size(75, 23);
             this.ButtonPCIRangeMonitor.TabIndex = 11;
-            this.ButtonPCIRangeMonitor.Text = "Monitor";
+            this.ButtonPCIRangeMonitor.Text = "监视";
             this.ButtonPCIRangeMonitor.UseVisualStyleBackColor = true;
             this.ButtonPCIRangeMonitor.Click += new System.EventHandler(this.ButtonPCIRangeMonitor_Click);
             // 
@@ -1525,7 +1525,7 @@ namespace ZenStatesDebugTool
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(94, 29);
             this.label52.TabIndex = 12;
-            this.label52.Text = "Start Address";
+            this.label52.Text = "起始地址";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label53
@@ -1536,7 +1536,7 @@ namespace ZenStatesDebugTool
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(94, 26);
             this.label53.TabIndex = 13;
-            this.label53.Text = "End Address";
+            this.label53.Text = "结束地址";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label54
@@ -1547,7 +1547,7 @@ namespace ZenStatesDebugTool
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(94, 26);
             this.label54.TabIndex = 14;
-            this.label54.Text = "Dump Name";
+            this.label54.Text = "转储名称";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxDumpStartAddress
@@ -1581,7 +1581,7 @@ namespace ZenStatesDebugTool
             this.buttonDump.Name = "buttonDump";
             this.buttonDump.Size = new System.Drawing.Size(75, 23);
             this.buttonDump.TabIndex = 18;
-            this.buttonDump.Text = "Dump";
+            this.buttonDump.Text = "转储";
             this.buttonDump.UseVisualStyleBackColor = true;
             this.buttonDump.Click += new System.EventHandler(this.ButtonDump_Click);
             // 
@@ -1638,7 +1638,7 @@ namespace ZenStatesDebugTool
             this.buttonMsrWrite.Name = "buttonMsrWrite";
             this.buttonMsrWrite.Size = new System.Drawing.Size(76, 25);
             this.buttonMsrWrite.TabIndex = 5;
-            this.buttonMsrWrite.Text = "Write";
+            this.buttonMsrWrite.Text = "写入";
             this.buttonMsrWrite.UseVisualStyleBackColor = true;
             this.buttonMsrWrite.Click += new System.EventHandler(this.ButtonMsrWrite_Click);
             // 
@@ -1673,7 +1673,7 @@ namespace ZenStatesDebugTool
             this.buttonMsrRead.Name = "buttonMsrRead";
             this.buttonMsrRead.Size = new System.Drawing.Size(76, 25);
             this.buttonMsrRead.TabIndex = 2;
-            this.buttonMsrRead.Text = "Read";
+            this.buttonMsrRead.Text = "读取";
             this.buttonMsrRead.UseVisualStyleBackColor = true;
             this.buttonMsrRead.Click += new System.EventHandler(this.ButtonMsrRead_Click);
             // 
@@ -1687,7 +1687,7 @@ namespace ZenStatesDebugTool
             this.label17.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.label17.Size = new System.Drawing.Size(94, 27);
             this.label17.TabIndex = 3;
-            this.label17.Text = "EDX (63 - 32)";
+            this.label17.Text = "EDX (63-32)";
             this.label17.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // textBoxMsrEdx
@@ -1708,7 +1708,7 @@ namespace ZenStatesDebugTool
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 31);
             this.label18.TabIndex = 6;
-            this.label18.Text = "Start Address";
+            this.label18.Text = "起始地址";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label19
@@ -1719,7 +1719,7 @@ namespace ZenStatesDebugTool
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(94, 28);
             this.label19.TabIndex = 7;
-            this.label19.Text = "End Address";
+            this.label19.Text = "结束地址";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxMsrStart
@@ -1751,7 +1751,7 @@ namespace ZenStatesDebugTool
             this.buttonMsrScan.Name = "buttonMsrScan";
             this.buttonMsrScan.Size = new System.Drawing.Size(76, 25);
             this.buttonMsrScan.TabIndex = 10;
-            this.buttonMsrScan.Text = "Scan";
+            this.buttonMsrScan.Text = "扫描";
             this.buttonMsrScan.UseVisualStyleBackColor = true;
             this.buttonMsrScan.Click += new System.EventHandler(this.ButtonMsrScan_Click);
             // 
@@ -1765,7 +1765,7 @@ namespace ZenStatesDebugTool
             this.label20.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.label20.Size = new System.Drawing.Size(94, 27);
             this.label20.TabIndex = 11;
-            this.label20.Text = "EAX (31 - 0)";
+            this.label20.Text = "EAX (31-0)";
             this.label20.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // textBoxMsrEax
@@ -1841,7 +1841,7 @@ namespace ZenStatesDebugTool
             this.buttonCpuidDecode.Padding = new System.Windows.Forms.Padding(3);
             this.buttonCpuidDecode.Size = new System.Drawing.Size(77, 28);
             this.buttonCpuidDecode.TabIndex = 0;
-            this.buttonCpuidDecode.Text = "Decode";
+            this.buttonCpuidDecode.Text = "解码";
             this.buttonCpuidDecode.UseVisualStyleBackColor = true;
             this.buttonCpuidDecode.Click += new System.EventHandler(this.ButtonCpuidDecode_Click);
             // 
@@ -1908,7 +1908,7 @@ namespace ZenStatesDebugTool
             this.buttonCPUIDRead.Name = "buttonCPUIDRead";
             this.buttonCPUIDRead.Size = new System.Drawing.Size(77, 25);
             this.buttonCPUIDRead.TabIndex = 2;
-            this.buttonCPUIDRead.Text = "Read";
+            this.buttonCPUIDRead.Text = "读取";
             this.buttonCPUIDRead.UseVisualStyleBackColor = true;
             this.buttonCPUIDRead.Click += new System.EventHandler(this.ButtonCPUIDRead_Click);
             // 
@@ -2014,7 +2014,7 @@ namespace ZenStatesDebugTool
             this.buttonCPUIDScan.Name = "buttonCPUIDScan";
             this.buttonCPUIDScan.Size = new System.Drawing.Size(77, 23);
             this.buttonCPUIDScan.TabIndex = 10;
-            this.buttonCPUIDScan.Text = "Scan";
+            this.buttonCPUIDScan.Text = "扫描";
             this.buttonCPUIDScan.UseVisualStyleBackColor = true;
             this.buttonCPUIDScan.Click += new System.EventHandler(this.ButtonCPUIDScan_Click);
             // 
@@ -2128,7 +2128,7 @@ namespace ZenStatesDebugTool
             this.buttonApplyCO.Name = "buttonApplyCO";
             this.buttonApplyCO.Size = new System.Drawing.Size(85, 22);
             this.buttonApplyCO.TabIndex = 5;
-            this.buttonApplyCO.Text = "Apply";
+            this.buttonApplyCO.Text = "应用";
             this.buttonApplyCO.UseVisualStyleBackColor = true;
             this.buttonApplyCO.Click += new System.EventHandler(this.ButtonApplyCO_Click);
             // 
@@ -2140,7 +2140,7 @@ namespace ZenStatesDebugTool
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(54, 28);
             this.label31.TabIndex = 0;
-            this.label31.Text = "Core 0";
+            this.label31.Text = "核心 0";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label32
@@ -2151,7 +2151,7 @@ namespace ZenStatesDebugTool
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(54, 28);
             this.label32.TabIndex = 1;
-            this.label32.Text = "Core 1";
+            this.label32.Text = "核心 1";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label33
@@ -2162,7 +2162,7 @@ namespace ZenStatesDebugTool
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(54, 28);
             this.label33.TabIndex = 2;
-            this.label33.Text = "Core 2";
+            this.label33.Text = "核心 2";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label34
@@ -2173,7 +2173,7 @@ namespace ZenStatesDebugTool
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(54, 28);
             this.label34.TabIndex = 3;
-            this.label34.Text = "Core 3";
+            this.label34.Text = "核心 3";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label35
@@ -2184,7 +2184,7 @@ namespace ZenStatesDebugTool
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(54, 28);
             this.label35.TabIndex = 4;
-            this.label35.Text = "Core 4";
+            this.label35.Text = "核心 4";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label36
@@ -2195,7 +2195,7 @@ namespace ZenStatesDebugTool
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(54, 28);
             this.label36.TabIndex = 5;
-            this.label36.Text = "Core 5";
+            this.label36.Text = "核心 5";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label37
@@ -2206,7 +2206,7 @@ namespace ZenStatesDebugTool
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(54, 28);
             this.label37.TabIndex = 6;
-            this.label37.Text = "Core 6";
+            this.label37.Text = "核心 6";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label38
@@ -2217,7 +2217,7 @@ namespace ZenStatesDebugTool
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(54, 28);
             this.label38.TabIndex = 7;
-            this.label38.Text = "Core 7";
+            this.label38.Text = "核心 7";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label39
@@ -2228,7 +2228,7 @@ namespace ZenStatesDebugTool
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(54, 28);
             this.label39.TabIndex = 8;
-            this.label39.Text = "Core 8";
+            this.label39.Text = "核心 8";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label40
@@ -2239,7 +2239,7 @@ namespace ZenStatesDebugTool
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(54, 28);
             this.label40.TabIndex = 9;
-            this.label40.Text = "Core 9";
+            this.label40.Text = "核心 9";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label41
@@ -2250,7 +2250,7 @@ namespace ZenStatesDebugTool
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(54, 28);
             this.label41.TabIndex = 10;
-            this.label41.Text = "Core 10";
+            this.label41.Text = "核心 10";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label42
@@ -2261,7 +2261,7 @@ namespace ZenStatesDebugTool
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(54, 28);
             this.label42.TabIndex = 11;
-            this.label42.Text = "Core 11";
+            this.label42.Text = "核心 11";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label43
@@ -2272,7 +2272,7 @@ namespace ZenStatesDebugTool
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(54, 28);
             this.label43.TabIndex = 12;
-            this.label43.Text = "Core 12";
+            this.label43.Text = "核心 12";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label44
@@ -2283,7 +2283,7 @@ namespace ZenStatesDebugTool
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(54, 28);
             this.label44.TabIndex = 13;
-            this.label44.Text = "Core 13";
+            this.label44.Text = "核心 13";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label45
@@ -2294,7 +2294,7 @@ namespace ZenStatesDebugTool
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(54, 28);
             this.label45.TabIndex = 14;
-            this.label45.Text = "Core 14";
+            this.label45.Text = "核心 14";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label46
@@ -2305,7 +2305,7 @@ namespace ZenStatesDebugTool
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(54, 28);
             this.label46.TabIndex = 15;
-            this.label46.Text = "Core 15";
+            this.label46.Text = "核心 15";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonGetCO
@@ -2315,7 +2315,7 @@ namespace ZenStatesDebugTool
             this.buttonGetCO.Name = "buttonGetCO";
             this.buttonGetCO.Size = new System.Drawing.Size(85, 22);
             this.buttonGetCO.TabIndex = 32;
-            this.buttonGetCO.Text = "Refresh";
+            this.buttonGetCO.Text = "刷新";
             this.buttonGetCO.UseVisualStyleBackColor = true;
             this.buttonGetCO.Click += new System.EventHandler(this.buttonGetCO_Click);
             // 
@@ -2674,7 +2674,7 @@ namespace ZenStatesDebugTool
             this.btnSaveCOProfile.Name = "btnSaveCOProfile";
             this.btnSaveCOProfile.Size = new System.Drawing.Size(85, 22);
             this.btnSaveCOProfile.TabIndex = 53;
-            this.btnSaveCOProfile.Text = "Save";
+            this.btnSaveCOProfile.Text = "保存";
             this.btnSaveCOProfile.UseVisualStyleBackColor = true;
             this.btnSaveCOProfile.Click += new System.EventHandler(this.BtnSaveCOProfile_Click);
             // 
@@ -2685,7 +2685,7 @@ namespace ZenStatesDebugTool
             this.btnLoadCOProfile.Name = "btnLoadCOProfile";
             this.btnLoadCOProfile.Size = new System.Drawing.Size(85, 22);
             this.btnLoadCOProfile.TabIndex = 54;
-            this.btnLoadCOProfile.Text = "Load";
+            this.btnLoadCOProfile.Text = "加载";
             this.btnLoadCOProfile.UseVisualStyleBackColor = true;
             this.btnLoadCOProfile.Click += new System.EventHandler(this.BtnLoadCOProfile_Click);
             // 
@@ -2698,7 +2698,7 @@ namespace ZenStatesDebugTool
             this.checkBoxApplyCOStartup.Name = "checkBoxApplyCOStartup";
             this.checkBoxApplyCOStartup.Size = new System.Drawing.Size(165, 22);
             this.checkBoxApplyCOStartup.TabIndex = 55;
-            this.checkBoxApplyCOStartup.Text = "Apply saved profile on startup";
+            this.checkBoxApplyCOStartup.Text = "启动时应用已保存的配置文件";
             this.checkBoxApplyCOStartup.UseVisualStyleBackColor = true;
             this.checkBoxApplyCOStartup.Click += new System.EventHandler(this.CheckBoxApplyCOStartup_CheckedChanged);
             // 
@@ -2720,7 +2720,7 @@ namespace ZenStatesDebugTool
             this.buttonApplyFMax.Name = "buttonApplyFMax";
             this.buttonApplyFMax.Size = new System.Drawing.Size(85, 22);
             this.buttonApplyFMax.TabIndex = 58;
-            this.buttonApplyFMax.Text = "Apply";
+            this.buttonApplyFMax.Text = "应用";
             this.buttonApplyFMax.UseVisualStyleBackColor = true;
             this.buttonApplyFMax.Click += new System.EventHandler(this.ButtonApplyFMax_Click);
             // 
@@ -2786,7 +2786,7 @@ namespace ZenStatesDebugTool
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(84, 26);
             this.label49.TabIndex = 4;
-            this.label49.Text = "Argument";
+            this.label49.Text = "参数";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label47
@@ -2797,7 +2797,7 @@ namespace ZenStatesDebugTool
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(84, 27);
             this.label47.TabIndex = 0;
-            this.label47.Text = "Command";
+            this.label47.Text = "命令";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // comboBoxAvailableCommands
@@ -2830,7 +2830,7 @@ namespace ZenStatesDebugTool
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(84, 27);
             this.label48.TabIndex = 3;
-            this.label48.Text = "Values";
+            this.label48.Text = "值";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxWmiArgument
@@ -2847,7 +2847,7 @@ namespace ZenStatesDebugTool
             this.buttonWmiCmdSend.Name = "buttonWmiCmdSend";
             this.buttonWmiCmdSend.Size = new System.Drawing.Size(75, 23);
             this.buttonWmiCmdSend.TabIndex = 6;
-            this.buttonWmiCmdSend.Text = "Send";
+            this.buttonWmiCmdSend.Text = "发送";
             this.buttonWmiCmdSend.UseVisualStyleBackColor = true;
             this.buttonWmiCmdSend.Click += new System.EventHandler(this.ButtonWmiCmdSend_Click);
             // 
@@ -2908,7 +2908,7 @@ namespace ZenStatesDebugTool
             this.buttonBCLKApply.Name = "buttonBCLKApply";
             this.buttonBCLKApply.Size = new System.Drawing.Size(75, 23);
             this.buttonBCLKApply.TabIndex = 3;
-            this.buttonBCLKApply.Text = "Apply";
+            this.buttonBCLKApply.Text = "应用";
             this.buttonBCLKApply.UseVisualStyleBackColor = true;
             this.buttonBCLKApply.Click += new System.EventHandler(this.ButtonBCLKApply_Click);
             // 
@@ -3023,7 +3023,7 @@ namespace ZenStatesDebugTool
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(96, 29);
             this.label11.TabIndex = 9;
-            this.label11.Text = "Frequency";
+            this.label11.Text = "频率";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pstateFrequency
@@ -3044,7 +3044,7 @@ namespace ZenStatesDebugTool
             this.btnPstateWrite.Name = "btnPstateWrite";
             this.btnPstateWrite.Size = new System.Drawing.Size(77, 23);
             this.btnPstateWrite.TabIndex = 11;
-            this.btnPstateWrite.Text = "Write";
+            this.btnPstateWrite.Text = "写入";
             this.btnPstateWrite.UseVisualStyleBackColor = true;
             this.btnPstateWrite.Click += new System.EventHandler(this.BtnPstateWrite_Click);
             // 
@@ -3055,7 +3055,7 @@ namespace ZenStatesDebugTool
             this.btnPstateRead.Name = "btnPstateRead";
             this.btnPstateRead.Size = new System.Drawing.Size(77, 25);
             this.btnPstateRead.TabIndex = 12;
-            this.btnPstateRead.Text = "Read";
+            this.btnPstateRead.Text = "读取";
             this.btnPstateRead.UseVisualStyleBackColor = true;
             this.btnPstateRead.Click += new System.EventHandler(this.BtnPstateRead_Click);
             // 
@@ -3067,7 +3067,7 @@ namespace ZenStatesDebugTool
             this.tabPageInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageInfo.Size = new System.Drawing.Size(337, 356);
             this.tabPageInfo.TabIndex = 2;
-            this.tabPageInfo.Text = "Info";
+            this.tabPageInfo.Text = "信息";
             this.tabPageInfo.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
@@ -3126,7 +3126,7 @@ namespace ZenStatesDebugTool
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(102, 26);
             this.buttonExport.TabIndex = 1;
-            this.buttonExport.Text = "Debug Report";
+            this.buttonExport.Text = "调试报告";
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.ButtonExport_Click);
             // 
@@ -3190,7 +3190,7 @@ namespace ZenStatesDebugTool
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.label1.Size = new System.Drawing.Size(65, 23);
             this.label1.TabIndex = 1;
-            this.label1.Text = "MB Vendor";
+            this.label1.Text = "主板厂商";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -3239,7 +3239,7 @@ namespace ZenStatesDebugTool
             this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.label4.Size = new System.Drawing.Size(65, 23);
             this.label4.TabIndex = 8;
-            this.label4.Text = "MB Model";
+            this.label4.Text = "主板型号";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // mbModelInfoLabel
@@ -3287,7 +3287,7 @@ namespace ZenStatesDebugTool
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(65, 23);
             this.label23.TabIndex = 12;
-            this.label23.Text = "Firmware";
+            this.label23.Text = "固件";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // firmwareInfoLabel
@@ -3310,7 +3310,7 @@ namespace ZenStatesDebugTool
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(65, 23);
             this.label24.TabIndex = 14;
-            this.label24.Text = "Model";
+            this.label24.Text = "型号";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label28
@@ -3321,7 +3321,7 @@ namespace ZenStatesDebugTool
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(65, 23);
             this.label28.TabIndex = 15;
-            this.label28.Text = "Package";
+            this.label28.Text = "封装";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // modelInfoLabel
@@ -3356,7 +3356,7 @@ namespace ZenStatesDebugTool
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(65, 23);
             this.label29.TabIndex = 18;
-            this.label29.Text = "Config";
+            this.label29.Text = "配置";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // configInfoLabel
@@ -3435,7 +3435,7 @@ namespace ZenStatesDebugTool
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SMU Debug Tool";
+            this.Text = "SMU 调试工具";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

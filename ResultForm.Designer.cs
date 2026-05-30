@@ -56,7 +56,7 @@ namespace ZenStatesDebugTool
             this.buttonSaveResult.Name = "buttonSaveResult";
             this.buttonSaveResult.Size = new System.Drawing.Size(75, 23);
             this.buttonSaveResult.TabIndex = 1;
-            this.buttonSaveResult.Text = "Save";
+            this.buttonSaveResult.Text = "保存";
             this.buttonSaveResult.UseVisualStyleBackColor = true;
             this.buttonSaveResult.Click += new System.EventHandler(this.buttonSaveResult_Click);
             // 
@@ -84,7 +84,7 @@ namespace ZenStatesDebugTool
             this.buttonSaveAs.Name = "buttonSaveAs";
             this.buttonSaveAs.Size = new System.Drawing.Size(75, 23);
             this.buttonSaveAs.TabIndex = 4;
-            this.buttonSaveAs.Text = "Save As...";
+            this.buttonSaveAs.Text = "另存为...";
             this.buttonSaveAs.UseVisualStyleBackColor = true;
             this.buttonSaveAs.Click += new System.EventHandler(this.buttonSaveAs_Click);
             // 
@@ -97,7 +97,7 @@ namespace ZenStatesDebugTool
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "结果";
             this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

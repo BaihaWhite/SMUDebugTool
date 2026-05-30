@@ -14,6 +14,7 @@ namespace ZenStatesDebugTool
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadException += ApplicationThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException;
             try
             {
                 Form MainForm = new SettingsForm();
@@ -24,17 +25,22 @@ namespace ZenStatesDebugTool
                 MainForm.Text = appString;
                 Application.Run(MainForm);
             }
-            catch (ApplicationException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show($"应用程序遇到未处理的错误。\n\n{ex.GetType().Name}: {ex.Message}", "致命错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
 
         static void ApplicationThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
-            // Handle your exception here...
-            MessageBox.Show(e.Exception.Message, Properties.Resources.Error);
+            MessageBox.Show(e.Exception.Message, Properties.Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        static void CurrentDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = e.ExceptionObject as Exception;
+            MessageBox.Show($"发生致命错误，应用程序必须关闭。\n\n{ex?.GetType().Name ?? "Unknown"}: {ex?.Message ?? "无详细信息"}", "致命错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

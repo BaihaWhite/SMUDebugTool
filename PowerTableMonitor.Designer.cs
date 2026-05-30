@@ -81,7 +81,7 @@
             // 
             this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Index.DataPropertyName = "Index";
-            this.Index.HeaderText = "Index";
+            this.Index.HeaderText = "索引";
             this.Index.Name = "Index";
             this.Index.ReadOnly = true;
             this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -92,7 +92,7 @@
             // 
             this.Offset.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Offset.DataPropertyName = "Offset";
-            this.Offset.HeaderText = "Offset";
+            this.Offset.HeaderText = "偏移";
             this.Offset.Name = "Offset";
             this.Offset.ReadOnly = true;
             this.Offset.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -105,7 +105,7 @@
             this.Value.DataPropertyName = "Value";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Value.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Value.HeaderText = "Value";
+            this.Value.HeaderText = "数值";
             this.Value.Name = "Value";
             this.Value.ReadOnly = true;
             this.Value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -139,7 +139,7 @@
             this.labelRefreshInterval.Name = "labelRefreshInterval";
             this.labelRefreshInterval.Size = new System.Drawing.Size(82, 29);
             this.labelRefreshInterval.TabIndex = 0;
-            this.labelRefreshInterval.Text = "Refresh Interval";
+            this.labelRefreshInterval.Text = "刷新间隔";
             this.labelRefreshInterval.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonApply
@@ -149,7 +149,7 @@
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(75, 23);
             this.buttonApply.TabIndex = 1;
-            this.buttonApply.Text = "Apply";
+            this.buttonApply.Text = "应用";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.ButtonApply_Click);
             // 
@@ -192,7 +192,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PowerTableMonitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PowerTableMonitor";
+            this.Text = "电源表监视器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PowerTableMonitor_FormClosing);
             this.Shown += new System.EventHandler(this.PowerTableMonitor_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

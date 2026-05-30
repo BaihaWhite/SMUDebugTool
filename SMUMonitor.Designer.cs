@@ -89,7 +89,7 @@
             // 
             this.Cmd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Cmd.DataPropertyName = "Cmd";
-            this.Cmd.HeaderText = "Command";
+            this.Cmd.HeaderText = "命令";
             this.Cmd.MinimumWidth = 50;
             this.Cmd.Name = "Cmd";
             this.Cmd.ReadOnly = true;
@@ -101,7 +101,7 @@
             // 
             this.Arg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Arg.DataPropertyName = "Arg";
-            this.Arg.HeaderText = "Argument";
+            this.Arg.HeaderText = "参数";
             this.Arg.MinimumWidth = 90;
             this.Arg.Name = "Arg";
             this.Arg.ReadOnly = true;
@@ -115,7 +115,7 @@
             this.Rsp.DataPropertyName = "Rsp";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Rsp.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Rsp.HeaderText = "Response";
+            this.Rsp.HeaderText = "响应";
             this.Rsp.MinimumWidth = 90;
             this.Rsp.Name = "Rsp";
             this.Rsp.ReadOnly = true;
@@ -159,7 +159,7 @@
             this.buttonStartStop.Name = "buttonStartStop";
             this.buttonStartStop.Size = new System.Drawing.Size(84, 23);
             this.buttonStartStop.TabIndex = 1;
-            this.buttonStartStop.Text = "Stop";
+            this.buttonStartStop.Text = "停止";
             this.buttonStartStop.UseVisualStyleBackColor = true;
             this.buttonStartStop.Click += new System.EventHandler(this.ButtonApply_Click);
             // 
@@ -170,7 +170,7 @@
             this.ButtonClear.Name = "ButtonClear";
             this.ButtonClear.Size = new System.Drawing.Size(84, 23);
             this.ButtonClear.TabIndex = 2;
-            this.ButtonClear.Text = "Clear";
+            this.ButtonClear.Text = "清除";
             this.ButtonClear.UseVisualStyleBackColor = true;
             this.ButtonClear.Click += new System.EventHandler(this.ButtonClear_Click);
             // 
@@ -183,7 +183,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.label1.Size = new System.Drawing.Size(84, 19);
             this.label1.TabIndex = 3;
-            this.label1.Text = "CMD Address";
+            this.label1.Text = "CMD 地址";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -195,7 +195,7 @@
             this.label2.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.label2.Size = new System.Drawing.Size(84, 19);
             this.label2.TabIndex = 4;
-            this.label2.Text = "RSP Address";
+            this.label2.Text = "RSP 地址";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -207,7 +207,7 @@
             this.label3.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.label3.Size = new System.Drawing.Size(84, 19);
             this.label3.TabIndex = 5;
-            this.label3.Text = "ARG Address";
+            this.label3.Text = "ARG 地址";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCmdAddr
@@ -258,7 +258,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SMUMonitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SMU Monitor";
+            this.Text = "SMU 监视器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SMUMonitor_FormClosing);
             this.Shown += new System.EventHandler(this.SMUMonitor_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

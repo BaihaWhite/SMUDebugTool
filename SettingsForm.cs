@@ -46,15 +46,15 @@ namespace ZenStatesDebugTool
 
         public SettingsForm()
         {
-            InitializeComponent();
-            _numaUtil = new NUMAUtil();
-            textBoxResult.Text = $@"Detected NUMA nodes. ({_numaUtil.HighestNumaNode + 1})" + textBoxResult.Text;
-
             try
             {
+                InitializeComponent();
+                _numaUtil = new NUMAUtil();
+                textBoxResult.Text = $@"Detected NUMA nodes. ({_numaUtil.HighestNumaNode + 1})" + textBoxResult.Text;
+
                 profilesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, profilesFolderName);
                 defaultsPath =  Path.Combine(profilesPath, filename);
-                
+
                 args = Environment.GetCommandLineArgs();
                 foreach (string arg in args)
                 {
@@ -67,9 +67,9 @@ namespace ZenStatesDebugTool
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, Resources.Error);
-                Dispose();
-                ExitApplication();
+                MessageBox.Show($"应用程序初始化失败。\n\n{ex.GetType().Name}: {ex.Message}", "初始化错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try { Dispose(); } catch { /* 最佳尝试清理 */ }
+                throw;
             }
         }
 
@@ -134,15 +134,15 @@ namespace ZenStatesDebugTool
 
             if (cpu.smu.Version == 0)
             {
-                MessageBox.Show("Error getting SMU version!\n" +
-                    "Default SMU addresses are not responding to commands.",
-                    "Error",
+                MessageBox.Show("获取 SMU 版本失败！\n" +
+                    "默认 SMU 地址未响应命令。",
+                    "错误",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (!Directory.Exists(profilesPath))
             {
-                MessageBox.Show("Profiles directory does not exist, created one for you.");
+                MessageBox.Show("配置文件目录不存在，已为您创建。");
                 Directory.CreateDirectory(profilesPath);
             }
 
@@ -200,7 +200,7 @@ namespace ZenStatesDebugTool
                 tabControl1.SelectedTab = tabPagePbo;
             }
 
-            SetStatusText($"{cpu.info.codeName}. Ready.");
+            SetStatusText($"{cpu.info.codeName}。就绪。");
         }
 
         private void ApplyCOProfile ()
@@ -226,7 +226,7 @@ namespace ZenStatesDebugTool
         {
             double multi = cpu.GetCoreMulti();
             if (multi == 0)
-                SetStatusText($@"Error getting current frequency!");
+                SetStatusText($@"获取当前频率失败！");
 
             return multi;
         }
@@ -351,34 +351,34 @@ namespace ZenStatesDebugTool
         private void ApplyFrequencyAllCoreSetting(int frequency)
         {
             if (cpu.SetFrequencyAllCore(Convert.ToUInt32(frequency)))
-                SetStatusText(string.Format("Set frequency to {0} MHz!", frequency));
+                SetStatusText(string.Format("设置频率为 {0} MHz！", frequency));
             else
-                HandleError("Error setting frequency!");
+                HandleError("设置频率失败！");
         }
 
         private void ApplyFrequencySingleCoreSetting(CoreListItem i, int frequency)
         {
             uint coreMask = Convert.ToUInt32(((i.CCD << 4 | i.CCX % 2 & 15) << 4 | i.CORE % 4 & 15) << 20);
             if (cpu.SetFrequencySingleCore(coreMask, Convert.ToUInt32(frequency)))
-                SetStatusText(string.Format("Set core {0} frequency to {1} MHz!", i, frequency));
+                SetStatusText(string.Format("设置核心 {0} 频率为 {1} MHz！", i, frequency));
             else
-                HandleError("Error setting frequency!");
+                HandleError("设置频率失败！");
         }
 
         private void EnableOCMode(bool prochotEnabled = true)
         {
             if (cpu.smu.SendSmuCommand(cpu.smu.Rsmu, cpu.smu.Rsmu.SMU_MSG_EnableOcMode, prochotEnabled ? 0U : 0x1000000))
-                SetStatusText(prochotEnabled ? "PROCHOT enabled." : "PROCHOT disabled.");
+                SetStatusText(prochotEnabled ? "PROCHOT 已启用。" : "PROCHOT 已禁用。");
             else
-                HandleError("Error setting OC Mode!");
+                HandleError("设置 OC 模式失败！");
         }
 
         private void DisableOCMode()
         {
             if (cpu.DisableOcMode() == SMU.Status.OK)
-                SetStatusText(string.Format("Set OK!"));
+                SetStatusText(string.Format("设置成功！"));
             else
-                HandleError("Error disabling OC Mode!");
+                HandleError("禁用 OC 模式失败！");
         }
 
         private void SetStatusText(string status)
@@ -427,11 +427,11 @@ namespace ZenStatesDebugTool
             }
             catch
             {
-                throw new ApplicationException("Invalid hexadecimal value.");
+                throw new ApplicationException("无效的十六进制值。");
             }
         }
 
-        private void HandleError(string message, string title = "Error")
+        private void HandleError(string message, string title = "错误")
         {
             SetStatusText(Resources.Error);
             MessageBox.Show(message, title);
@@ -559,7 +559,7 @@ namespace ZenStatesDebugTool
             }
             catch (ApplicationException ex)
             {
-                HandleError(ex.Message, "Error reading response");
+                HandleError(ex.Message, "读取响应失败");
             }
         }
 
@@ -567,7 +567,7 @@ namespace ZenStatesDebugTool
         {
             try
             {
-                SetStatusText("Reading, please wait...");
+                SetStatusText("读取中，请稍候...");
                 SetButtonsState(false);
 
                 TryConvertToUint(textBoxPciAddress.Text, out uint address);
@@ -590,7 +590,7 @@ namespace ZenStatesDebugTool
         {
             try
             {
-                SetStatusText("Writing, please wait...");
+                SetStatusText("写入中，请稍候...");
                 SetButtonsState(false);
 
                 TryConvertToUint(textBoxPciAddress.Text, out uint address);
@@ -601,7 +601,7 @@ namespace ZenStatesDebugTool
                     res = cpu.WriteDwordEx(cpu.smu.SMU_OFFSET_DATA, data);
 
                 if (res)
-                    SetStatusText("Write OK.");
+                    SetStatusText("写入成功。");
                 else
                     SetStatusText(Resources.Error);
 
@@ -849,7 +849,7 @@ namespace ZenStatesDebugTool
             {
                 Invoke(new MethodInvoker(delegate
                 {
-                    SetStatusText("Scanning SMU addresses, please wait...");
+                    SetStatusText("正在扫描 SMU 地址，请稍候...");
                 }));
 
                 switch (cpu.info.codeName)
@@ -901,12 +901,12 @@ namespace ZenStatesDebugTool
         private void ButtonScan_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show(
-                "The scan process might crash your system or have other unexpected results. " +
+                "扫描过程可能导致系统崩溃或出现其他意外结果。" +
                 Environment.NewLine +
-                "It could take up to 1 minute, depending on the system and current workload." +
+                "根据系统和当前负载，可能需要最多 1 分钟。" +
                 Environment.NewLine +
-                "Do you want to continue?",
-                "Confirm Scan",
+                "是否继续？",
+                "确认扫描",
                 MessageBoxButtons.OKCancel
             );
 
@@ -992,8 +992,8 @@ namespace ZenStatesDebugTool
 
             //ResetSmuAddresses();
             SetButtonsState();
-            SetStatusText("Report Complete.");
-            MessageBox.Show($"Report saved as {fileName}");
+            SetStatusText("报告完成。");
+            MessageBox.Show($"报告已保存为 {fileName}");
         }
 
         public static void CalculatePstateDetails(uint eax, ref uint IddDiv, ref uint IddVal, ref uint CpuVid, ref uint CpuDfsId, ref uint CpuFid)
@@ -1054,7 +1054,7 @@ namespace ZenStatesDebugTool
             var pstateId = pstateIdBox.SelectedIndex;
             if (!cpu.ReadMsr(Convert.ToUInt32(Convert.ToInt64(0xC0010064) + pstateId), ref eax, ref edx))
             {
-                SetStatusText($@"Error reading PState {pstateId}!");
+                SetStatusText($@"读取 PState {pstateId} 失败！");
                 return;
             }
 
@@ -1070,7 +1070,7 @@ namespace ZenStatesDebugTool
             pstateFid.Text = Convert.ToString(CpuFid, 10);
             pstateFrequency.Text = (CpuFid * 25 / (CpuDfsId * 12.5)) * 100 + "MHz";
 
-            SetStatusText($@"PState {pstateId} successfully read.");
+            SetStatusText($@"PState {pstateId} 读取成功。");
 
             pstateDid.ReadOnly = false;
             pstateFid.ReadOnly = false;
@@ -1080,12 +1080,12 @@ namespace ZenStatesDebugTool
         private void BtnPstateWrite_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show(
-                @"This will change the selected PState and your CPU frequency." +
+                @"这将更改选定的 PState 和 CPU 频率。" +
                 Environment.NewLine +
-                @"Setting a high frequency could crash/damage your system." +
+                @"设置高频率可能导致系统崩溃或损坏。" +
                 Environment.NewLine +
-                @"Do you want to continue?",
-                @"Confirm PState change",
+                @"是否继续？",
+                @"确认 PState 更改",
                 MessageBoxButtons.OKCancel
             );
 
@@ -1093,7 +1093,7 @@ namespace ZenStatesDebugTool
 
             if (string.IsNullOrEmpty(pstateDid.Text) || string.IsNullOrEmpty(pstateFid.Text))
             {
-                MessageBox.Show("Can't write because DID/FID is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("无法写入，因为 DID/FID 为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -1107,7 +1107,7 @@ namespace ZenStatesDebugTool
 
             if (!cpu.ReadMsr(Convert.ToUInt32(Convert.ToInt64(0xC0010064) + pstateId), ref eax, ref edx))
             {
-                SetStatusText($@"Error reading PState {pstateId}!");
+                SetStatusText($@"读取 PState {pstateId} 失败！");
                 return;
             }
 
@@ -1127,7 +1127,7 @@ namespace ZenStatesDebugTool
                 if (!WritePstateClick(pstateId, eax, edx)) return;
             }
 
-            SetStatusText($@"Successfully written PState {pstateId}.");
+            SetStatusText($@"PState {pstateId} 写入成功。");
         }
 
         // P0 fix C001_0015 HWCR[21]=1
@@ -1142,7 +1142,7 @@ namespace ZenStatesDebugTool
                 return cpu.WriteMsr(0xC0010015, eax, edx);
             }
 
-            SetStatusText($@"Error applying TSC fix!");
+            SetStatusText($@"应用 TSC 修复失败！");
             return false;
         }
 
@@ -1154,7 +1154,7 @@ namespace ZenStatesDebugTool
 
             if (!cpu.WriteMsr(Convert.ToUInt32(Convert.ToInt64(0xC0010064) + pstateId), eax, edx))
             {
-                SetStatusText($@"Error writing PState {pstateId}!");
+                SetStatusText($@"写入 PState {pstateId} 失败！");
                 return false;
             }
 
@@ -1170,16 +1170,16 @@ namespace ZenStatesDebugTool
 
                 if (endReg <= startReg)
                 {
-                    HandleError("End register is not greater than start register");
+                    HandleError("结束寄存器不大于起始寄存器");
                     return;
                 }
 
                 Invoke(new MethodInvoker(delegate
                 {
-                    SetStatusText("Scanning PCI addresses, please wait...");
+                    SetStatusText("正在扫描 PCI 地址，请稍候...");
                 }));
 
-                string result = "REG         Value(HEX) Value(BIN)" + Environment.NewLine;
+                string result = "寄存器       数值(HEX) 数值(BIN)" + Environment.NewLine;
 
                 while (startReg <= endReg)
                 {
@@ -1188,7 +1188,7 @@ namespace ZenStatesDebugTool
                     startReg += 4;
                 }
                     
-                ShowResultForm("PCI Scan result", result);
+                ShowResultForm("PCI 扫描结果", result);
             }
             catch (ApplicationException ex)
             {
@@ -1203,7 +1203,7 @@ namespace ZenStatesDebugTool
         private void Scan_WorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             SetButtonsState();
-            SetStatusText("Scan Complete.");
+            SetStatusText("扫描完成。");
         }
 
         private void SmuScan_WorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -1222,7 +1222,7 @@ namespace ZenStatesDebugTool
             comboBoxMailboxSelect.SelectedIndex = index;
             SetButtonsState();
             //ResetSmuAddresses();
-            SetStatusText("Scan Complete.");
+            SetStatusText("扫描完成。");
         }
 
         private void ButtonPciScan_Click(object sender, EventArgs e)
@@ -1253,7 +1253,7 @@ namespace ZenStatesDebugTool
             if (!checkBoxPROCHOT.Checked && cpu.IsProchotEnabled() == true)
             {
                 checkBoxPROCHOT.Checked = true;
-                HandleError($@"Error, PROCHOT could not be disabled!");
+                HandleError($@"错误，无法禁用 PROCHOT！");
             }
             /*else
             {
@@ -1268,7 +1268,7 @@ namespace ZenStatesDebugTool
             {
                 Invoke(new MethodInvoker(delegate
                 {
-                    SetStatusText("Scanning MSR range, please wait...");
+                    SetStatusText("正在扫描 MSR 范围，请稍候...");
                 }));
 
                 string result = "MSR         EDX(63-32) EAX(31-0)" + Environment.NewLine;
@@ -1287,7 +1287,7 @@ namespace ZenStatesDebugTool
                     startReg += 1;
                 }
 
-                ShowResultForm("MSR Scan result", result);
+                ShowResultForm("MSR 扫描结果", result);
             }
             catch (ApplicationException ex)
             {
@@ -1318,11 +1318,11 @@ namespace ZenStatesDebugTool
 
             if (!cpu.WriteMsr(msr, eax, edx))
             {
-                HandleError($@"Error writing MSR {textBoxMsrAddress.Text}!");
+                HandleError($@"写入 MSR {textBoxMsrAddress.Text} 失败！");
                 return;
             }
 
-            SetStatusText("Write OK.");
+            SetStatusText("写入成功。");
         }
 
         private void ButtonMsrScan_Click(object sender, EventArgs e)
@@ -1336,7 +1336,7 @@ namespace ZenStatesDebugTool
             {
                 Invoke(new MethodInvoker(delegate
                 {
-                    SetStatusText("Scanning CPUID range, please wait...");
+                    SetStatusText("正在扫描 CPUID 范围，请稍候...");
                 }));
 
                 string result = "CPUID       EAX        EBX        ECX        EDX" + Environment.NewLine;
@@ -1363,7 +1363,7 @@ namespace ZenStatesDebugTool
                     result += $"0x{index:X8}: 0x{eax:X8} 0x{ebx:X8} 0x{ecx:X8} 0x{edx:X8}" + Environment.NewLine;
                 }
 
-                ShowResultForm("CPUID Scan result", result);
+                ShowResultForm("CPUID 扫描结果", result);
             }
             catch (ApplicationException ex)
             {
@@ -1398,7 +1398,7 @@ namespace ZenStatesDebugTool
             if (cpu.Status == IOModule.LibStatus.OK)
                 new Thread(() => new PowerTableMonitor(cpu).ShowDialog()).Start();
             else
-                HandleError("IO driver is not responding or not loaded.");
+                HandleError("IO 驱动未响应或未加载。");
         }
 
         private void ButtonSMUMonitor_Click(object sender, EventArgs e)
@@ -1522,7 +1522,7 @@ namespace ZenStatesDebugTool
                         }
                         else
                         {
-                            comboBoxAvailableCommands.Items.Add("<FAILED>");
+                            comboBoxAvailableCommands.Items.Add("<失败>");
                         }
 
                         comboBoxAvailableCommands.SelectedIndex = 0;
@@ -1571,13 +1571,13 @@ namespace ZenStatesDebugTool
                     if (comboBoxAvailableValues.Items.Count > 0)
                         comboBoxAvailableValues.Enabled = true;
                     else
-                        comboBoxAvailableValues.Items.Add("No values available for this command");
+                        comboBoxAvailableValues.Items.Add("此命令没有可用的值");
                 }
                 textBoxWmiArgument.Enabled = true;
             }
             else
             {
-                comboBoxAvailableValues.Items.Add("Get commands don't support values");
+                comboBoxAvailableValues.Items.Add("Get 命令不支持值");
             }
 
             comboBoxAvailableValues.SelectedIndex = 0;
@@ -1725,12 +1725,12 @@ namespace ZenStatesDebugTool
                         foreach (var entry in margins)
                             file.WriteLine("[{0},{1}]", entry.Item1, entry.Item2);
 
-                        textBoxResult.Text = $"Profile saved in {defaultsPath}" + Environment.NewLine + textBoxResult.Text;
+                        textBoxResult.Text = $"配置文件已保存至 {defaultsPath}" + Environment.NewLine + textBoxResult.Text;
                     }
                 }
                 catch (Exception)
                 {
-                    HandleError("Could not save profile to file!");
+                    HandleError("无法将配置文件保存到文件！");
                 }
             }
         }
@@ -1742,7 +1742,7 @@ namespace ZenStatesDebugTool
             {
                 if (!Directory.Exists(profilesPath))
                 {
-                    MessageBox.Show("Profiles directory does not exist, created one for you.");
+                    MessageBox.Show("配置文件目录不存在，已为您创建。");
                     Directory.CreateDirectory(profilesPath);
                 }
 
@@ -1763,12 +1763,12 @@ namespace ZenStatesDebugTool
                 }
                 else
                 {
-                    HandleError("No CO profile saved.");
+                    HandleError("没有已保存的 CO 配置文件。");
                 }
             }
             catch (Exception ex)
             {
-                HandleError("Could not load saved profile!");
+                HandleError("无法加载已保存的配置文件！");
             }
             
             return margins;
@@ -1789,7 +1789,7 @@ namespace ZenStatesDebugTool
                     }
                 }
 
-                textBoxResult.Text = $"Saved CO profile loaded from {defaultsPath}" + Environment.NewLine + textBoxResult.Text;
+                textBoxResult.Text = $"已从 {defaultsPath} 加载 CO 配置文件" + Environment.NewLine + textBoxResult.Text;
             }
         }
 
@@ -1869,7 +1869,7 @@ namespace ZenStatesDebugTool
         private void CheckBoxApplyCOStartup_CheckedChanged(object sender, EventArgs e)
         {
             SetStartup((sender as CheckBox).Checked);
-            textBoxResult.Text = $"Startup settings saved." + Environment.NewLine + textBoxResult.Text;
+            textBoxResult.Text = $"启动设置已保存。" + Environment.NewLine + textBoxResult.Text;
         }
 
         private void tableLayoutPanel14_Paint(object sender, PaintEventArgs e)
@@ -1980,8 +1980,8 @@ namespace ZenStatesDebugTool
         private void ConfirmWindowsRestart()
         {
             var result = MessageBox.Show(
-                "A restart is required to apply the changes. Would you like to restart now?",
-                "Confirm Restart",
+                "需要重启才能应用更改。是否立即重启？",
+                "确认重启",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -1998,7 +1998,7 @@ namespace ZenStatesDebugTool
                 }
                 catch (Exception ex)
                 {
-                    HandleError($"Failed to restart: {ex.Message}");
+                    HandleError($"重启失败：{ex.Message}");
                 }
             }
         }
@@ -2031,15 +2031,15 @@ namespace ZenStatesDebugTool
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                HandleError("Please specify a valid file name!");
+                HandleError("请指定有效的文件名！");
                 return;
             }
 
             if (File.Exists(name))
             {
                 var result = MessageBox.Show(
-                    $"File {name} already exists. Overwrite?",
-                    "Confirm Overwrite",
+                    $"文件 {name} 已存在。是否覆盖？",
+                    "确认覆盖",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
                 if (result != DialogResult.Yes)
@@ -2053,19 +2053,19 @@ namespace ZenStatesDebugTool
                 TryConvertToUint(textBoxDumpStartAddress.Text.Trim(), out uint startAddress);
                 TryConvertToUint(textBoxDumpEndAddress.Text.Trim(), out uint endAddress);
 
-                SetStatusText(name + ": Dumping memory, please wait...");
+                SetStatusText($"{name}：正在转储内存，请稍候...");
                 
                 var stopwatch = Stopwatch.StartNew();
                 MemoryDumper.Dump32BitAddressSpaceAsBytes(name, startAddress, endAddress);
                 stopwatch.Stop();
                 
                 string elapsedTime = $"{stopwatch.Elapsed.TotalSeconds:F2}";
-                SetStatusText(name + $": Dump complete. ({elapsedTime}s)");
-                MessageBox.Show($"Memory dump completed successfully to file: {name}\n\nTime elapsed: {elapsedTime}s", "Dump Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SetStatusText($"{name}：转储完成。（{elapsedTime}秒）");
+                MessageBox.Show($"内存转储已成功完成，文件：{name}\n\n耗时：{elapsedTime}秒", "转储完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                HandleError("Invalid address format!");
+                HandleError("地址格式无效！");
                 return;
             }
         }

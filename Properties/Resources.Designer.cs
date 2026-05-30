@@ -65,7 +65,7 @@ namespace ZenStatesDebugTool.Properties {
         /// </summary>
         internal static string Error {
             get {
-                return ResourceManager.GetString("Error", resourceCulture);
+                return "错误";
             }
         }
         

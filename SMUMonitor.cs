@@ -86,13 +86,13 @@ namespace ZenStatesDebugTool
             if (MonitorTimer.Enabled)
             {
                 MonitorTimer.Stop();
-                buttonStartStop.Text = "Start";
+                buttonStartStop.Text = "启动";
             }
             else
             {
                 prevCmdValue = 0;
                 MonitorTimer.Start();
-                buttonStartStop.Text = "Stop";
+                buttonStartStop.Text = "停止";
             }
         }
     }
